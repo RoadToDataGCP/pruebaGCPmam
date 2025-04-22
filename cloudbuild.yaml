@@ -3,24 +3,24 @@ steps:
     dir: 'pruebaGCPmam'
     args: [
       'build',
-      '-t', 'gcr.io/r2d-interno-dev/pruebaGCPmam:v1.2-$COMMIT_SHA',
+      '-t', 'gcr.io/r2d-interno-dev/pruebaGCPmam:v1.2-$SHORT_SHA',
       './pruebaGCPmam'
     ]
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'push',
-      'gcr.io/r2d-interno-dev/pruebaGCPmam:v1.2-$COMMIT_SHA'
+      'gcr.io/r2d-interno-dev/pruebaGCPmam:v1.2-$SHORT_SHA'
     ]
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args: [
       'run', 'jobs', 'deploy', 'pruebaGCPmam',
-      '--image', 'gcr.io/r2d-interno-dev/pruebaGCPmam:v1.2-$COMMIT_SHA',
+      '--image', 'gcr.io/r2d-interno-dev/pruebaGCPmam:v1.2-$SHORT_SHA',
       '--region', 'europe-west1'
     ]
 
 images:
-  - 'gcr.io/r2d-interno-dev/pruebaGCPmam:v1.2-$COMMIT_SHA'
+  - 'gcr.io/r2d-interno-dev/pruebaGCPmam:v1.2-$SHORT_SHA'
 
 logsBucket: 'gs://pruebagcpmam/log_exports'
 
