@@ -23,3 +23,4 @@ images:
   - 'gcr.io/r2d-interno-dev/pruebaGCPmam:v1.2-$COMMIT_SHA'
 
 logsBucket: 'gs://pruebagcpmam/log_exports'
+
