@@ -4,7 +4,7 @@ steps:
     args: [
       'build',
       '-t', 'gcr.io/r2d-interno-dev/pruebaGCPmam:v1.2-$COMMIT_SHA',
-      '.'
+      './pruebaGCPmam'
     ]
   - name: 'gcr.io/cloud-builders/docker'
     args: [
